@@ -6,8 +6,7 @@ import 'swiper/css/pagination';
 import '../css/about-us.css';
 
 const container =
-  document.querySelector('.about-us-slider .mySwiper') ||
-  document.querySelector('.mySwiper');
+  document.querySelector('.about-us-slider .mySwiper') || document.querySelector('.mySwiper');
 if (container) {
   new Swiper(container, {
     modules: [Navigation, Pagination, Keyboard],
