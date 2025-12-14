@@ -74,6 +74,7 @@
     cursor: pointer;
     background: none;
 }
+
 .faq-open-icon {}
 
 .faq-list-close {
@@ -83,6 +84,7 @@
 ul.faq-list-close {
     list-style-type: disc;
 }
+
 .faq-text {
     font-family: var(--font-family);
     font-weight: 400;
@@ -102,12 +104,15 @@ ul.faq-list-close {
         margin-bottom: 80px;
         margin-top: 80px;
     }
+
     .faq-open-div {
         width: 704px;
     }
+
     .faq-close-div {
         width: 704px;
     }
+
     .faq-list-question {
         max-width: 608px;
     }
@@ -119,19 +124,24 @@ ul.faq-list-close {
         margin-top: 80px;
         margin-bottom: 80px;
     }
+
     .faq-open-div {
         width: 864px;
     }
+
     .faq-close-div {
         width: 864px;
     }
+
     .faq-list-question {
         max-width: 700px;
         font-size: 18px;
     }
+
     .faq-text {
         font-size: 16px;
     }
+
     .faq-header {
         font-size: 48px;
     }
