@@ -83,7 +83,11 @@
 .about-us-slider .swiper-pagination {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 8px;
+}
+
+.about-us-slider {
+    --swiper-pagination-bullet-horizontal-gap: 0px;
 }
 
 
@@ -235,11 +239,13 @@
 
     .about-us-slider-controls .swiper-pagination {
         position: static;
-        display: flex;
         justify-content: center;
         margin-top: 24px;
         padding: 10px;
+        gap: 9px;
     }
+
+
 
     .about-us-slider .swiper-button-prev {
         left: -24px;
