@@ -77,3 +77,9 @@
     background-color: var(--color-mariner-light);
   }
 }
+.close-btn {
+  width: 24px;
+  height: 24px;
+  background-color: red;
+
+}
