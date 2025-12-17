@@ -8,6 +8,7 @@ import '/js/paw-hut-api-orders';
 import '/js/render-functions';
 import '/js/swiper-about-us';
 import '/js/pets-list';
+import '/js/mobile-menu';
 
 
 // Основна логіка тут
