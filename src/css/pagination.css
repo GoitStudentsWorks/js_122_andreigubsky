@@ -59,12 +59,18 @@
     outline-offset: 3px;
 }
 
-.js-pet-list {
+/* .js-pet-list {
     overflow-anchor: none;
-}
+} */
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .js-pet-pagination {
         display: none;
     }
+}
+
+@media (min-width: 766px) {
+   .js-pet-list {
+    overflow-anchor: none;
+}
 }
