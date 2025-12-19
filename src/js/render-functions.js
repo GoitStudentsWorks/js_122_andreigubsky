@@ -74,7 +74,7 @@ export function createTemplatePets(pets) {
 
 export function createModalTemplate(pet) {
   return `
-    <div class="pet-modal">
+    <div class="pet-modal" data-aos="zoom-in">
       <button
         type="button"
         class="pet-modal-close js-modal-close"
