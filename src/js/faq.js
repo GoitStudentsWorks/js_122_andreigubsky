@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 
 AOS.init({
     duration: 1500, // optional settings
-    once: false,   // whether animation should happen only once - while scrolling down
+    once: true,   // whether animation should happen only once - while scrolling down
 });
 
 new Accordion('.accordion-container', {
