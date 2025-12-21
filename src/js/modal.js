@@ -9,30 +9,23 @@ const refs = {
   modalWindow: null,
 };
 
-// ===== ESC HANDLER (ОДИН І ТОЙ САМИЙ РЕФ) =====
 function onEscPress(e) {
   if (e.key === 'Escape') {
     closePetModal();
   }
 }
 
-// ===== OPEN MODAL =====
 function openPetModal(pet) {
   refs.modalWindow.innerHTML = createModalTemplate(pet);
   refs.backdrop.classList.add('is-open');
   document.body.classList.add('modal-open');
-
-  // 🔑 ВАЖЛИВО: слухач додається ТІЛЬКИ ТУТ
   document.addEventListener('keydown', onEscPress);
 }
 
-// ===== CLOSE MODAL =====
 function closePetModal() {
   refs.backdrop.classList.remove('is-open');
   document.body.classList.remove('modal-open');
   refs.modalWindow.innerHTML = '';
-
-  // 🔑 ВАЖЛИВО: слухач ЗНІМАЄТЬСЯ ТУТ
   document.removeEventListener('keydown', onEscPress);
 }
 
@@ -43,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!refs.petList || !refs.backdrop || !refs.modalWindow) return;
 
-  // ===== OPEN BY BUTTON =====
   refs.petList.addEventListener('click', e => {
     const btn = e.target.closest('.js-more-info');
     if (!btn) return;
@@ -55,14 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     openPetModal(pet);
   });
 
-  // ===== CLOSE BY BACKDROP / X =====
   refs.backdrop.addEventListener('click', e => {
     if (e.target === refs.backdrop || e.target.closest('.js-modal-close')) {
       closePetModal();
     }
   });
 
-  // ===== OPEN ORDER MODAL =====
   document.addEventListener('click', e => {
     const btn = e.target.closest('.js-takehome-btn');
     if (!btn) return;
@@ -74,6 +64,3 @@ document.addEventListener('DOMContentLoaded', () => {
     openOrderModal(animalId);
   });
 });
-
-// додат ифункцію відкриття мод вікна, в неї перенести логіку відкриття модального вікна, в цю функцію додати вішання прослуховувача подій на кнопку esc,
-// у функцію closepetmodal додати зняття прослуховувача події натискання кнопки esc
