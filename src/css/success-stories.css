@@ -268,7 +268,7 @@
   color: var(--color-scheme-1-text);
 }
 
-.reviews-slider.swiper-button-next {
+.reviews-slider .swiper-button-next {
   right: 0;
   color: var(--color-scheme-1-text);
 }

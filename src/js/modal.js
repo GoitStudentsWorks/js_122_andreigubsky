@@ -3,7 +3,31 @@ import { allAnimals } from './pets-list';
 import { openOrderModal } from './order-modal';
 import '../img/sprite.svg';
 
-const refs = { petList: null, backdrop: null, modalWindow: null };
+const refs = {
+  petList: null,
+  backdrop: null,
+  modalWindow: null,
+};
+
+function onEscPress(e) {
+  if (e.key === 'Escape') {
+    closePetModal();
+  }
+}
+
+function openPetModal(pet) {
+  refs.modalWindow.innerHTML = createModalTemplate(pet);
+  refs.backdrop.classList.add('is-open');
+  document.body.classList.add('modal-open');
+  document.addEventListener('keydown', onEscPress);
+}
+
+function closePetModal() {
+  refs.backdrop.classList.remove('is-open');
+  document.body.classList.remove('modal-open');
+  refs.modalWindow.innerHTML = '';
+  document.removeEventListener('keydown', onEscPress);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
   refs.petList = document.querySelector('.js-pet-list');
@@ -11,14 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   refs.modalWindow = document.querySelector('.js-modal-window');
 
   if (!refs.petList || !refs.backdrop || !refs.modalWindow) return;
-
-  function onEscPress(e) {
-    if (e.key === 'Escape') {
-      refs.backdrop.classList.remove('is-open');
-      document.body.classList.remove('no-scroll');
-      document.removeEventListener('keydown', onEscPress);
-    }
-  }
 
   refs.petList.addEventListener('click', e => {
     const btn = e.target.closest('.js-more-info');
@@ -28,28 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const pet = allAnimals.find(p => String(p._id) === String(id));
     if (!pet) return;
 
-    refs.modalWindow.innerHTML = createModalTemplate(pet);
-    refs.backdrop.classList.add('is-open');
-    document.body.classList.add('modal-open');
+    openPetModal(pet);
   });
-
-  function closePetModal() {
-    if (!refs.backdrop || !refs.modalWindow) return;
-    refs.backdrop.classList.remove('is-open');
-    document.body.classList.remove('modal-open');
-    refs.modalWindow.innerHTML = '';
-  }
 
   refs.backdrop.addEventListener('click', e => {
     if (e.target === refs.backdrop || e.target.closest('.js-modal-close')) {
       closePetModal();
-    }
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && refs.backdrop.classList.contains('is-open')) {
-      closePetModal();
-      document.removeEventListener('keydown', onEscPress);
     }
   });
 

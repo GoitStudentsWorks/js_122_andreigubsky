@@ -9,10 +9,17 @@ const form = document.querySelector('.modal-order-form');
 
 let selectedPetId = null;
 
+function onEscPressOrder(e) {
+  if (e.key === 'Escape') {
+    closeOrderModal();
+  }
+}
+
 export function openOrderModal(animalId) {
   selectedPetId = animalId;
   modalLayer.classList.add('is-open');
   document.body.classList.add('modal-open');
+  document.addEventListener('keydown', onEscPressOrder);
 }
 
 function closeOrderModal() {
@@ -20,6 +27,7 @@ function closeOrderModal() {
   document.body.classList.remove('modal-open');
   form.reset();
   selectedPetId = null;
+  document.removeEventListener('keydown', onEscPressOrder);
 }
 
 if (modalLayer && modalCloseBtn && form) {
@@ -31,12 +39,6 @@ if (modalLayer && modalCloseBtn && form) {
 
   modalLayer.addEventListener('click', e => {
     if (e.target === modalLayer) closeOrderModal();
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modalLayer.classList.contains('is-open')) {
-      closeOrderModal();
-    }
   });
 
   form.addEventListener('submit', async e => {
