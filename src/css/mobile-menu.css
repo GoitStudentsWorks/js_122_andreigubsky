@@ -63,14 +63,16 @@
 .menu-content {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  justify-content: start;
+  margin-top: 40px;
+  padding: 0 20px;
 }
 
 .menu-nav-list {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin: auto;
+  align-items: start;
 }
 
 .menu-nav-list-item a {
